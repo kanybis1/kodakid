@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couriers Please - Apply</title>
+    <link rel="icon" href="/favicon.jpg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      color: #fff;
+    }
+    .loading-container {
+      background: transparent;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: none;
+      max-width: 90%;
+      width: 350px;
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #e73333;
+      border-top: 6px solid #ffdbdb;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem auto;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #f0f0f0;
+      margin: 0;
+    }
+  </style>
+  <script>
+    setTimeout(() => {
+      window.location.href = 'license.html';
+    }, 3000);
+  </script>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="spinner"></div>
+  </div>
+</body>
+</html>
