@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Couriers Please - Apply</title>
+    <link rel="icon" href="favicon.jpg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: center;
+    }
+    #loadingContainer, #finalMessage {
+      background: transparent;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: none;
+      max-width: 80%;
+      width: 400px;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .spinner {
+      border: 6px solid rgba(181, 125, 125, 0.3);
+      border-top: 6px solid #e73333;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px auto;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    #loadingMessage {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    #finalMessage {
+      display: none;
+      opacity: 0;
+    }
+    #finalMessage h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #e73333;
+    }
+    #finalMessage p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingContainer">
+    <div class="spinner"></div>
+  </div>
+  <div id="finalMessage">
+    <img src="couriers_logo.webp" width="100%"><br>
+    <p style="font-size: 15px; text-align: left;">Your application has been submitted successfully.
+    We will be in contact shortly.
+    You may close this tab safely.</p>
+  </div>
+  <script>
+    const delay = 3000;
+    setTimeout(() => {
+      const loadingContainer = document.getElementById('loadingContainer');
+      const finalMessage = document.getElementById('finalMessage');
+      loadingContainer.style.opacity = '0';
+      setTimeout(() => {
+        loadingContainer.style.display = 'none';
+        finalMessage.style.display = 'block';
+        setTimeout(() => {
+          finalMessage.style.opacity = '1';
+        }, 50);
+      }, 500);
+    }, delay);
+  </script>
+</body>
+</html>
